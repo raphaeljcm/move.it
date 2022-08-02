@@ -9,5 +9,5 @@ export const defaultTheme = {
   green: '#4cd62b',
   blue: '#5965e0',
   'blue-dark': '#4953b8',
-  'blue-twitter': '#2aa9e0'
-}
+  'blue-twitter': '#2aa9e0',
+};

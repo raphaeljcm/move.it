@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { devices } from "./functions/func";
+import { createGlobalStyle } from 'styled-components';
+import { devices } from './functions/func';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   @media ${devices.laptop} {
     html {
       font-size: 93.75%;
