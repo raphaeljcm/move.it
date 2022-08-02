@@ -6,10 +6,8 @@ import { defaultTheme } from '../styles/themes/default';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <div className="container">
-        <Component {...pageProps} />
-        <GlobalStyle />
-      </div>
+      <Component {...pageProps} />
+      <GlobalStyle />
     </ThemeProvider>
   );
 }
