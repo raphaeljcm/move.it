@@ -4,7 +4,7 @@ import { CompletedChallenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
 import { ExperienceBar } from '../components/ExperienceBar';
 import { Profile } from '../components/Profile';
-import * as S from './styles';
+import * as S from '../styles/home/styles';
 
 const Home: NextPage = () => {
   return (
