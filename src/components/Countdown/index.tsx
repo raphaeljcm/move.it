@@ -12,6 +12,8 @@ export function Countdown() {
         <span>0</span>
         <span>0</span>
       </div>
+
+      <button type="button">Iniciar um ciclo</button>
     </S.CountdownContainer>
   );
 }
