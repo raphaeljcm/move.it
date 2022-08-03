@@ -1,11 +1,20 @@
 import type { NextPage } from 'next';
 import { ExperienceBar } from '../components/ExperienceBar';
+import { Profile } from '../components/Profile';
+import * as S from './styles';
 
 const Home: NextPage = () => {
   return (
-    <div className="container">
+    <S.Container>
       <ExperienceBar />
-    </div>
+
+      <section>
+        <div>
+          <Profile />
+        </div>
+        <div />
+      </section>
+    </S.Container>
   );
 };
 
