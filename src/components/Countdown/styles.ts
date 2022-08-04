@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const CountdownContainer = styled.div`
   display: flex;
@@ -39,7 +39,11 @@ export const CountdownContainer = styled.div`
   }
 `;
 
-export const CountdownButton = styled.button`
+interface CountdownButtonProps {
+  isActive?: boolean;
+}
+
+export const CountdownButton = styled.button<CountdownButtonProps>`
   width: 100%;
   height: 5rem;
 
@@ -60,7 +64,25 @@ export const CountdownButton = styled.button`
 
   transition: background-color 0.2s;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: ${props => props.theme['blue-dark']};
   }
+
+  &:disabled {
+    background-color: ${props => props.theme.white};
+    color: ${props => props.theme.text};
+    cursor: not-allowed;
+  }
+
+  ${props =>
+    props.isActive &&
+    css`
+      background-color: ${props => props.theme.white};
+      color: ${props => props.theme.title};
+
+      &:not(:disabled):hover {
+        background-color: ${props => props.theme.red};
+        color: ${props => props.theme.white};
+      }
+    `}
 `;
