@@ -72,6 +72,8 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
     background-color: ${props => props.theme.white};
     color: ${props => props.theme.text};
     cursor: not-allowed;
+
+    border-bottom: 4px solid ${props => props.theme.green};
   }
 
   ${props =>
@@ -85,4 +87,8 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
         color: ${props => props.theme.white};
       }
     `}
+
+  img {
+    margin-left: 1rem;
+  }
 `;

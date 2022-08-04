@@ -51,16 +51,21 @@ export function Countdown() {
       </S.CountdownContainer>
 
       {hasFinished ? (
-        <S.CountdownButton disabled>Ciclo encerrado</S.CountdownButton>
+        <S.CountdownButton disabled>
+          Ciclo encerrado
+          <img src="/icons/done.svg" alt="done icon" />
+        </S.CountdownButton>
       ) : (
         <>
           {isActive ? (
             <S.CountdownButton type="button" onClick={resetCountdown} isActive>
               Abandonar ciclo
+              <img src="/icons/close.svg" alt="close icon" />
             </S.CountdownButton>
           ) : (
             <S.CountdownButton type="button" onClick={startCountdown}>
               Iniciar um ciclo
+              <img src="/icons/play.svg" alt="play icon" />
             </S.CountdownButton>
           )}
         </>
