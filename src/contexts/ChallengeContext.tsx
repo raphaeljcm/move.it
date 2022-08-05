@@ -5,6 +5,13 @@ import {
   useContext,
   useState,
 } from 'react';
+import challenges from '../../challenges.json';
+
+type Challenge = {
+  type: string;
+  description: string;
+  amount: number;
+};
 
 interface ChallengeContextData {
   level: number;
@@ -12,6 +19,7 @@ interface ChallengeContextData {
   challengesCompleted: number;
   levelUp: () => void;
   startNewChallenge: () => void;
+  activeChallenge: Challenge | null;
 }
 
 interface ChallengesProviderProps {
@@ -24,13 +32,19 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
   const [level, setLevel] = useState(1);
   const [currentExperience, setCurrentExperience] = useState(0);
   const [challengesCompleted, setChallengesCompleted] = useState(0);
+  const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(
+    null
+  );
 
   const levelUp = useCallback(() => {
     setLevel(prev => prev + 1);
   }, []);
 
   const startNewChallenge = useCallback(() => {
-    console.log('New Challenge');
+    const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
+    const challenge = challenges[randomChallengeIndex];
+
+    setActiveChallenge(challenge);
   }, []);
 
   return (
@@ -41,6 +55,7 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
         challengesCompleted,
         currentExperience,
         startNewChallenge,
+        activeChallenge,
       }}
     >
       {children}

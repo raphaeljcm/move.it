@@ -3,7 +3,7 @@ import { useChallenges } from '../../contexts/ChallengeContext';
 import * as S from './styles';
 
 let countdownTimeout: NodeJS.Timeout;
-const INITIAL_TIME = 20 * 60;
+const INITIAL_TIME = 5 * 1;
 
 export function Countdown() {
   const { startNewChallenge } = useChallenges();
@@ -38,7 +38,7 @@ export function Countdown() {
       setIsActive(false);
       startNewChallenge();
     }
-  }, [isActive, time]);
+  }, [isActive, time, startNewChallenge]);
 
   return (
     <div>
