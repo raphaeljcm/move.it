@@ -1,10 +1,13 @@
+import { useChallenges } from '../../contexts/ChallengeContext';
 import * as S from './styles';
 
 export function CompletedChallenges() {
+  const { challengesCompleted } = useChallenges();
+
   return (
     <S.CompletedChallengesContainer>
       <span>Desafios completos</span>
-      <span>5</span>
+      <span>{challengesCompleted}</span>
     </S.CompletedChallengesContainer>
   );
 }
