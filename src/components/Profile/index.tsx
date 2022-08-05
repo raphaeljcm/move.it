@@ -1,6 +1,9 @@
+import { useChallenges } from '../../contexts/ChallengeContext';
 import * as S from './styles';
 
 export function Profile() {
+  const { level } = useChallenges();
+
   return (
     <S.ProfileContainer>
       <img
@@ -11,7 +14,7 @@ export function Profile() {
         <strong>Raphael Marques</strong>
         <p>
           <img src="/icons/level.svg" alt="level" />
-          Level 1
+          Level {level}
         </p>
       </div>
     </S.ProfileContainer>

@@ -2,7 +2,8 @@ import { useChallenges } from '../../contexts/ChallengeContext';
 import * as S from './styles';
 
 export function ChallengeBox() {
-  const { activeChallenge, resetActiveChallenge } = useChallenges();
+  const { activeChallenge, resetActiveChallenge, completeChallenge } =
+    useChallenges();
 
   return (
     <S.ChallengeBoxContainer>
@@ -23,7 +24,9 @@ export function ChallengeBox() {
             <button type="button" onClick={resetActiveChallenge}>
               Falhei
             </button>
-            <button type="button">Completei</button>
+            <button type="button" onClick={completeChallenge}>
+              Completei
+            </button>
           </footer>
         </S.ChallengeActive>
       ) : (
