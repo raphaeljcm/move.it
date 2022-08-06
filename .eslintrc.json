@@ -32,6 +32,7 @@
     "no-param-reassign": "off",
     "no-shadow": "off",
     "camelcase": "off",
+    "no-useless-return": "off",
     "import/no-duplicates": "off",
     "no-nested-ternary": "off",
     "react/jsx-props-no-spreading": "off",
