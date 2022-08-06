@@ -20,6 +20,8 @@ export const ExperienceBarContainer = styled.header`
       height: 4px;
       border-radius: 4px;
       background-color: ${props => props.theme.green};
+
+      transition: width 1s;
     }
   }
 `;
@@ -27,5 +29,7 @@ export const ExperienceBarContainer = styled.header`
 export const CurrentExperience = styled.span`
   position: absolute;
   top: 12px;
+
+  transition: all 1s;
   transform: translateX(-50%);
 `;
