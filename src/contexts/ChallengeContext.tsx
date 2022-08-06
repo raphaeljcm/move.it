@@ -3,6 +3,7 @@ import {
   ReactNode,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from 'react';
 import challenges from '../../challenges.json';
@@ -41,6 +42,10 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
 
   const experienceToNextLevel = ((level + 1) * 4) ** 2; // Math.pow is equal to **, exponentiation
 
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
   const levelUp = useCallback(() => {
     setLevel(prev => prev + 1);
   }, []);
@@ -50,6 +55,14 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     const challenge = challenges[randomChallengeIndex];
 
     setActiveChallenge(challenge);
+
+    const audio = new Audio('/notification.mp3').play();
+
+    if (Notification.permission === 'granted') {
+      const notification = new Notification('Novo desafio 🎉', {
+        body: `Valendo ${challenge.amount}xp!`,
+      });
+    }
   }, []);
 
   const resetActiveChallenge = useCallback(() => {
