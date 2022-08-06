@@ -43,6 +43,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
   const resetCountdown = useCallback(() => {
     clearTimeout(countdownTimeout);
     setIsActive(false);
+    setHasFinished(false);
     setTime(INITIAL_TIME);
   }, []);
 
