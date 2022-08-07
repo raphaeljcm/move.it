@@ -1,4 +1,4 @@
-import { useChallenges } from '../../contexts/ChallengeContext';
+import { useChallenges } from '../../contexts/ChallengesContext';
 import { useCountdown } from '../../contexts/CountdownContext';
 import * as S from './styles';
 
