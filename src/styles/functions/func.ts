@@ -1,3 +1,5 @@
+export const pxToRem = (px: number, base = 16) => `${px / base}rem`;
+
 const breakpoints = {
   mobileS: '320px',
   mobileM: '375px',

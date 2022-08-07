@@ -24,7 +24,7 @@ const Home = ({ level, currentExperience, challengesCompleted }: HomeProps) => {
     >
       <S.Container>
         <Head>
-          <title>Início | move.it</title>
+          <title>Início | move.it 2.0</title>
         </Head>
 
         <ExperienceBar />
