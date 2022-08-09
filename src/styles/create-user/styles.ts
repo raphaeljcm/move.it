@@ -49,10 +49,15 @@ export const CreateUserContainer = styled.div`
         border: 0;
         border-radius: 5px 0px 0px 5px;
         color: ${props => props.theme.white};
+        outline: 0;
 
         ::placeholder {
           color: ${props => props.theme['text-highlight']};
           font-size: 1rem;
+        }
+
+        :focus {
+          outline: 1.5px solid #414aa3;
         }
       }
 
@@ -63,6 +68,11 @@ export const CreateUserContainer = styled.div`
         background-color: ${props => props.theme['blue-dark']};
         border: 0;
         width: ${pxToRem(68)};
+        border-radius: 0px 5px 5px 0px;
+
+        &.active {
+          background-color: ${({ theme }) => theme.green};
+        }
       }
     }
   }

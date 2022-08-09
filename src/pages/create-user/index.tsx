@@ -1,7 +1,11 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import * as S from '../../styles/create-user/styles';
 
 export default function CreateUser() {
+  const [inputValue, setInputValue] = useState('');
+  const inputHasContent = inputValue.length > 0;
+
   return (
     <S.CreateUserContainer>
       <Head>
@@ -22,8 +26,16 @@ export default function CreateUser() {
             </div>
           </div>
           <div>
-            <input type="text" placeholder="Digite seu username" />
-            <button type="submit" />
+            <input
+              type="text"
+              placeholder="Digite seu username"
+              onChange={e => setInputValue(e.target.value)}
+              value={inputValue}
+            />
+            <button
+              type="submit"
+              className={`${inputHasContent ? 'active' : ''}`}
+            />
           </div>
         </div>
       </main>
