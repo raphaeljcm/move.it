@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from '../functions/func';
 
-export const CreateUserContainer = styled.div`
+export const LoginContainer = styled.div`
   background-color: ${props => props.theme.blue};
   width: 100vw;
   height: 100vh;

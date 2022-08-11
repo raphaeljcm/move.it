@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import * as S from '../../styles/create-user/styles';
+import * as S from '../../styles/users/styles';
 
-export default function CreateUser() {
+export default function Users() {
   const [inputValue, setInputValue] = useState('');
   const inputHasContent = inputValue.length > 0;
 
   return (
-    <S.CreateUserContainer>
+    <S.LoginContainer>
       <Head>
         <title>Raphael Marques - move.it 2.0</title>
       </Head>
@@ -39,6 +39,6 @@ export default function CreateUser() {
           </div>
         </div>
       </main>
-    </S.CreateUserContainer>
+    </S.LoginContainer>
   );
 }
