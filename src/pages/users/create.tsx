@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import Head from 'next/head';
 import { ChangeEvent } from 'react';
 import { api } from '../../services/api';
-import * as S from '../../styles/users/create/styles';
+import * as S from '../../styles/pages/create';
 
 export default function Create() {
   async function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
@@ -24,16 +24,11 @@ export default function Create() {
     } as AxiosRequestConfig;
 
     try {
-      const response = await api.post(
-        `https://api.imgbb.com/1/upload`,
-        formData,
-        config
-      );
-
-      console.log(response);
+      await api.post(`https://api.imgbb.com/1/upload`, formData, config);
+      // toastify
     } catch (err: any) {
       controller.abort();
-      console.log(err.message);
+      // toastifty
     }
   }
 

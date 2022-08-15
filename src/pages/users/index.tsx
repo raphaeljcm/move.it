@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import * as S from '../../styles/users/styles';
+import * as S from '../../styles/pages/users';
 
 export default function Users() {
   const [inputValue, setInputValue] = useState('');

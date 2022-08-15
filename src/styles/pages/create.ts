@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../functions/func';
+import { pxToRem } from '../functions/func';
 
 export const CreateUserContainer = styled.div`
   background-color: ${props => props.theme.blue};
