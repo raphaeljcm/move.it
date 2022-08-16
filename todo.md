@@ -1,4 +1,5 @@
 CREATE USER PAGE
+[ ] user can re-send an image
 [ ] finish login and create user page
 
 CREATE SIDEBAR
