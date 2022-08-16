@@ -27,7 +27,7 @@ export const CreateUserContainer = styled.div`
         cursor: pointer;
 
         position: absolute;
-        top: 1.75rem;
+        top: 2rem;
       }
 
       input[type='file'] {
@@ -43,6 +43,12 @@ export const CreateUserContainer = styled.div`
         &:hover {
           cursor: pointer;
         }
+      }
+
+      img {
+        width: ${pxToRem(120)};
+        height: ${pxToRem(120)};
+        border-radius: 100%;
       }
     }
   }

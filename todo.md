@@ -1,5 +1,3 @@
-FIX NEXT STYLES BUG ON PROD
-
 CREATE USER PAGE
 [ ] load when the image is submitting
 [ ] show the image when successful
