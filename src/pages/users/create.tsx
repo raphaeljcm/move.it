@@ -15,6 +15,7 @@ enum Image {
 export default function Create() {
   const [imageUrlTest, setImageUrlTest] = useState('');
   const [imageState, setImageState] = useState(Image.NOT_SENT);
+  const [error, setError] = useState(false);
   const [cancelToken, setCancelToken] = useState<CancelTokenSource | null>(
     {} as CancelTokenSource
   );
@@ -25,6 +26,8 @@ export default function Create() {
     }
 
     setImageState(Image.SENDING);
+    setError(false);
+    setImageUrlTest('');
 
     const controller = new AbortController();
     const formData = new FormData();
@@ -46,6 +49,7 @@ export default function Create() {
     } catch (err: any) {
       controller.abort();
       toast.error('Erro ao fazer upload de imagem');
+      setError(true);
     } finally {
       setImageState(Image.SENT);
       setImageUrlTest(URL.createObjectURL(event.target.files[0]));
@@ -53,7 +57,7 @@ export default function Create() {
   }
 
   useEffect(() => {
-    if (Image.SENDING && cancelToken?.cancel) {
+    if (Image.SENDING && cancelToken?.cancel && error) {
       cancelToken.cancel('Cancelled image upload.');
       setCancelToken(null);
     }
