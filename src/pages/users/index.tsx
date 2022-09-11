@@ -1,10 +1,29 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
+import { toast } from 'react-toastify';
+import { useUsers } from '../../contexts/UsersContext';
+import { githubApi } from '../../services/api';
 import * as S from '../../styles/pages/users';
+import { Profile } from '../../components/Profile/index';
 
 export default function Users() {
   const [inputValue, setInputValue] = useState('');
+  const { addUser, users } = useUsers();
   const inputHasContent = inputValue.length > 0;
+
+  async function addUserByGithub(event: FormEvent) {
+    event.preventDefault();
+
+    try {
+      const { data } = await githubApi(`/${inputValue}`);
+      addUser({ name: data.name, imageUrl: data.avatar_url });
+
+      toast.success('Created user');
+    } catch (err: any) {
+      console.error(err.message);
+      toast.error('Usuário não encontrado');
+    }
+  }
 
   return (
     <S.LoginContainer>
@@ -19,13 +38,19 @@ export default function Users() {
 
         <div>
           <h1>Bem vindo</h1>
-          <div>
-            <img src="/icons/github.svg" alt="Ícone do github" />
+
+          {users.length > 0 ? (
+            <Profile />
+          ) : (
             <div>
-              <p>Faça login com seu github para começar</p>
+              <img src="/icons/github.svg" alt="Ícone do github" />
+              <div>
+                <p>Faça login com seu github para começar</p>
+              </div>
             </div>
-          </div>
-          <div>
+          )}
+
+          <form onSubmit={addUserByGithub}>
             <input
               type="text"
               placeholder="Digite seu username"
@@ -36,7 +61,7 @@ export default function Users() {
               type="submit"
               className={`${inputHasContent ? 'active' : ''}`}
             />
-          </div>
+          </form>
         </div>
       </main>
     </S.LoginContainer>

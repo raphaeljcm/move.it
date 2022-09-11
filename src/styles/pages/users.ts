@@ -21,7 +21,7 @@ export const LoginContainer = styled.div`
       margin-bottom: 1.5rem;
     }
 
-    > div:first-of-type {
+    > div {
       display: flex;
       align-items: center;
       gap: 1.5rem;
@@ -35,7 +35,7 @@ export const LoginContainer = styled.div`
       }
     }
 
-    > div:last-of-type {
+    > form {
       margin-top: ${pxToRem(40)};
       display: flex;
 
