@@ -78,6 +78,7 @@ export default function Create() {
           {imageState === Image.NOT_SENT ? (
             <>
               <label htmlFor="file" />
+              <div />
               <input
                 type="file"
                 id="file"
@@ -88,10 +89,18 @@ export default function Create() {
           ) : imageState === Image.SENDING ? (
             <FadeLoader color="#4953b8" />
           ) : (
-            <img src={imageUrlTest} alt="Usuario" />
+            <>
+              <img src={imageUrlTest} alt="Usuario" />
+              <input
+                type="file"
+                id="file"
+                name="image"
+                onChange={e => handleImageChange(e)}
+              />
+            </>
           )}
-          <input type="text" />
-          <button type="submit" />
+          <input type="text" placeholder="Digite seu username" />
+          <button type="submit">Criar conta</button>
         </section>
       </main>
     </S.CreateUserContainer>
